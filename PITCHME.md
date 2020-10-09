@@ -189,3 +189,4 @@ const registerCommandSubscriber = fastify.messageStore.createSubscriber({
 - **not getting bounded contexts right for the business domain causing heavy change / flux in event contracts causing loss of fidelity**
 - **spaghetti contracts where "who's reading what from what stream" becomes unclear**
 - **materialization / projection will become expensive snapshotting is a must**
+- **don't sweat over eventual consistency**
