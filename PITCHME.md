@@ -199,4 +199,5 @@ const registerCommandSubscriber = fastify.messageStore.createSubscriber({
 - decade of experience - [https://www.youtube.com/watch?v=LDW0QWie21s&feature=youtu.be&t=2391](https://www.youtube.com/watch?v=LDW0QWie21s&feature=youtu.be&t=2391)
 - why not to use it - [https://chriskiehl.com/article/event-sourcing-is-hard](https://chriskiehl.com/article/event-sourcing-is-hard)
 - success cases - [https://martinfowler.com/articles/lmax.html](https://martinfowler.com/articles/lmax.html)
+- my attempt at a client library in nodejs [https://github.com/wolfejw86/message-db-client](https://github.com/wolfejw86/message-db-client)
 @snapend
