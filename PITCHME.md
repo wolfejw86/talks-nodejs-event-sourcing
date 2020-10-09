@@ -190,3 +190,13 @@ const registerCommandSubscriber = fastify.messageStore.createSubscriber({
 - **spaghetti contracts where "who's reading what from what stream" becomes unclear**
 - **materialization / projection will become expensive snapshotting is a must**
 - **don't sweat over eventual consistency**
+---
+## Further Reading
+@snap[text-05]
+- aggregate design pt1,2,3 - [https://dddcommunity.org/library/vernon_2011/](https://dddcommunity.org/library/vernon_2011/) pt1 - [https://dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_1.pdf](https://dddcommunity.org/wp-content/uploads/files/pdf_articles/Vernon_2011_1.pdf)
+- versioning in event sourced system [https://leanpub.com/esversioning](https://leanpub.com/esversioning) - don't version - refactor with a copy + transform technique
+- azure event sourcing handbook - [http://download.microsoft.com/download/e/a/8/ea8c6e1f-01d8-43ba-992b-35cfcaa4fae3/cqrs_journey_guide.pdf](http://download.microsoft.com/download/e/a/8/ea8c6e1f-01d8-43ba-992b-35cfcaa4fae3/cqrs_journey_guide.pdf)
+- decade of experience - [https://www.youtube.com/watch?v=LDW0QWie21s&feature=youtu.be&t=2391](https://www.youtube.com/watch?v=LDW0QWie21s&feature=youtu.be&t=2391)
+- why not to use it - [https://chriskiehl.com/article/event-sourcing-is-hard](https://chriskiehl.com/article/event-sourcing-is-hard)
+- success cases - [https://martinfowler.com/articles/lmax.html](https://martinfowler.com/articles/lmax.html)
+@snapend
