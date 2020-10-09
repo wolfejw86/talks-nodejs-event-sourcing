@@ -136,7 +136,34 @@ Example Register Command Subscriber (User Microservice / Component)
 @snapend
 
 @snap[span-100]
-@code[javascript zoom-06](src/registerSub.js)
+```js
+const streamName = 'identity:command';
+const subscriberId = 'components:identity:command';
+const registerCommandSubscriber = fastify.messageStore.createSubscriber({
+  handlers: {
+    Register: async command => {
+      const currentIdentityStream = `identity-${command.data.userId}`;
+      const existingEntity = await fastify.messageStore.loadEntity(
+        currentIdentityStream,
+        userIdentityProjection
+      );
+
+      if (existingEntity.isRegistered) {
+        // noop because we've already done this and this is a replay
+        return;
+      }
+
+      // we have a new user registration - record event for aggregators and history
+      await fastify.messageStore.writeToStream(
+        currentIdentityStream,
+        formatStreamMessage('Registered', command.data, command.metadata)
+      );
+    },
+  },
+  streamName,
+  subscriberId,
+});
+```
 @snapend
 ---
 ### If You Go Down This Path - Remember these things!
@@ -146,6 +173,7 @@ Example Register Command Subscriber (User Microservice / Component)
 - **streams are arguably easier to reason about than queues**
 - **streams make it easy to handle concurrency issues**
 - **use idempotent handlers**
+- **use trace ids**
 - **event storm your system ahead of time - also don't conflate the word SYSTEM**
 ---
 ### It can't be all good right? (aka things not to do)
